@@ -1,0 +1,95 @@
+{extends file='layout/main.html'}
+{block name="main"}
+<style type="text/css">
+table {
+	font-size: 12px;
+}
+table th {
+	width: 100px;
+	height: 50px;
+}
+</style>
+<div class="btn_blk">
+<h1>上一周&nbsp;&nbsp;&nbsp;下一周</h1>
+</div>
+
+<div >
+<form action="index" method="post">
+<table width="100%" class="table_list">
+	<tr>
+		<th>姓名</th>
+		<th>2月13日<br>周一</th>
+		<th>2月14日<br>周二</th>
+		<th>2月15日<br>周三</th>
+		<th>2月16日<br>周四</th>
+		<th>2月17日<br>周五</th>
+		<th>2月18日<br>周六</th>
+		<th>2月19日<br>周日</th>
+	</tr>
+    {foreach $staff as $val}
+    <tr{if $val@iteration % 2} class="odd"{/if}>
+        <td>
+			<select name="day[{$val.id}][id]">
+				{foreach $staff as $vo}
+					<option value="{$vo.id}" {if $val.username == $vo.username} selected {/if}>{$vo.username}</option>
+				{/foreach}
+			</select>
+		</td>
+		<td>
+			<select name="day[{$val.id}][Monday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Monday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td>
+		<td>
+			<select name="day[{$val.id}][Tuesday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Tuesday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td><td>
+			<select name="day[{$val.id}][Wednesday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Wednesday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td><td>
+			<select name="day[{$val.id}][Thursday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Thursday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td><td>
+			<select name="day[{$val.id}][Friday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Friday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td><td>
+			<select  name="day[{$val.id}][Saturday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Saturday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td><td>
+			<select name="day[{$val.id}][Sunday]">
+				{foreach $class as $v}
+					<option {if $model.{$val.id}.Sunday == $v.cid}selected{/if} value="{$v.cid}">{$v.cname}</option>
+				{/foreach}
+			</select>
+		</td>
+    </tr>
+    {/foreach}
+</table>
+<div class="clearfix">
+	<dl class="set_blk">
+		<input type="submit" class="btn1 fr" value="保存" style="margin-right: 20px">
+	</dl>
+</div>
+<div style="width: 100%;height: 30px">
+</div>
+<script type="text/javascript">
+
+</script>
+{/block}

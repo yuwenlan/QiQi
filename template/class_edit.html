@@ -1,0 +1,12 @@
+{extends file='layout/main.html'}
+{block name="main"}
+<form action="class/edit/" method="post">
+<div class="clearfix">
+	<dl class="set_blk">
+		班次名称：<br><input type="text" name="class" value="{$data.cname}">
+		<input type="submit" class="btn1" value="更改班次">
+		<input type="hidden" name="cid" value="{$data.cid}">
+	</dl>
+</div>
+</form>
+{/block}

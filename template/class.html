@@ -1,0 +1,28 @@
+{extends file='layout/main.html'}
+{block name="main"}
+<div class="main_title">
+	<h2>班次管理</h2>
+</div>
+<form action="class/add" method="post">
+<div class="clearfix">
+	<dl class="set_blk">
+		班次名称：<input type="text" name="class">
+		<input type="submit" class="btn1" value="添加班次">
+	</dl>
+</div>
+</form>
+<table width="100%" class="table_list">
+	<tr>
+		<th width="">班次</td>
+		<th width="8%">操作</td>
+	</tr>
+	{foreach $data as $val}
+	<tr{if $val@iteration % 2} class="odd"{/if}>
+		<td>{$val.cname}</td>
+		<td class="tc"><a href="class/edit?id={$val.cid}"><img src="{$smarty.const.SITE_URL}/images/i.gif" class="ico_edit" title="编辑"></a>&nbsp;&nbsp;<a href="class/delete?id={$val.cid}" class="delete"><img src="{$smarty.const.SITE_URL}/images/i.gif" class="ico_del" title="删除"></a></td>
+	</tr>
+	{/foreach}
+</table>
+<div style="width: 100%;height: 30px">
+</div>
+{/block}

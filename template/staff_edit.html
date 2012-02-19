@@ -1,0 +1,12 @@
+{extends file='layout/main.html'}
+{block name="main"}
+<form action="staff/edit/" method="post">
+<div class="clearfix">
+	<dl class="set_blk">
+		员工姓名：<br><input type="text" name="staff" value="{$data.username}">
+		<input type="submit" class="btn1" value="更改姓名">
+		<input type="hidden" name="sid" value="{$data.id}">
+	</dl>
+</div>
+</form>
+{/block}
